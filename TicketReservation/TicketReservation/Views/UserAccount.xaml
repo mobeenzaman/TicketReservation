@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketReservation.Views.UserAccount" >
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical"  Padding="10" Spacing="1" >
+            <BoxView HeightRequest="5"/>
+
+            <StackLayout Orientation="Vertical">
+
+                <Label Text="Enter info to Create Account"
+                     Style="{StaticResource ItemTitleStyle}"/>
+
+                
+
+            </StackLayout>
+
+            <BoxView HeightRequest="2" BackgroundColor="LightBlue" />
+            
+            <Image Style="{StaticResource LogoImageStyle}"/>
+            
+            <BoxView HeightRequest="5"/>
+
+            <Frame Style="{StaticResource FrameStyle}">
+                <StackLayout Orientation="Vertical" >
+
+                    <Entry x:Name="entryName" Text="{Binding Name}" Placeholder="NAME"   
+                           PlaceholderColor="Black"   
+                          
+                           
+                           Style="{StaticResource EntryStle}"/>
+
+                    <Entry x:Name="entryEmail" Text="{Binding Email}" Placeholder="EMAIL"   
+                           PlaceholderColor="Black"   
+                           Keyboard="Email"  
+                            Style="{StaticResource EntryStle}"/>
+
+                    <Entry x:Name="entryPassword" Text="{Binding Password}" Placeholder="PASSWORD"   
+                           PlaceholderColor="Black" 
+                           IsPassword="True"  
+                          
+                           Style="{StaticResource EntryStle}"/>
+
+                    <Entry x:Name="entryContact" Text="{Binding Contact}" Placeholder="CONTACT NUMBER"   
+                           PlaceholderColor="Black" 
+                            Keyboard="Numeric"
+                           IsPassword="False"  
+                           Style="{StaticResource EntryStle}"/>
+
+
+                    <Button Clicked="OnButtonClicked"  Text="Create Account"
+                    Style="{StaticResource ButtonStyle}"/>
+
+                </StackLayout>
+            </Frame>
+            
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

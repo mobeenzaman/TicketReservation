@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketReservation.Views.MakeBooking"
+             Title="">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <Label Text="Fill the required data"
+                     Style="{StaticResource ItemTitleStyle}"/>
+
+            <Image Source="TicketReservation/Images/airticketlogo.png" 
+                       BackgroundColor="Transparent" 
+                       WidthRequest="90" 
+                       HeightRequest="90" />
+
+            <Frame Style="{StaticResource FrameStyle}">
+                <StackLayout Orientation="Vertical" Spacing="5" >
+
+                    <Picker x:Name="depCity" Title="FROM (Airport City) " HorizontalOptions="FillAndExpand" SelectedIndexChanged="OnPickerSelectedIndexChanged" HorizontalTextAlignment="Center" WidthRequest="120" TextColor="Black" TitleColor="Black">
+                        <Picker.Items>
+                            <x:String>London</x:String>
+                            <x:String>Gatwick</x:String>
+                            <x:String>Heathrow</x:String>
+                            <x:String>Leeds</x:String>
+                            <x:String>Newcastle</x:String>
+                            <x:String>Manchester</x:String>
+                            <x:String>Glasow</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Picker x:Name="destCity" Title="To (Airport City) " HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" WidthRequest="120" TextColor="Black" TitleColor="Black">
+                        <Picker.Items>
+                            <x:String>Normal</x:String>
+                            <x:String>Business Class</x:String>
+                            <x:String>Economy</x:String>
+                            <x:String>Leeds</x:String>
+                            <x:String>Newcastle</x:String>
+                            <x:String>Manchester</x:String>
+                            <x:String>Glasow</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <DatePicker x:Name="ticketDate"  
+                                Date="{Binding StartDateBnd}" 
+                                Format="d" 
+                                DateSelected="OnStartDateSelected"
+                                VerticalOptions="CenterAndExpand"/>
+
+                    <TimePicker x:Name="ticketTime" 
+                                Time="{Binding EndDateBnd}" 
+                                Format="T"
+                                PropertyChanged="OnTimePickerPropertyChanged"
+                                 VerticalOptions="CenterAndExpand"/>
+
+                </StackLayout>
+            </Frame>
+
+            <Button Clicked="OnBookingBtnClicked"  Text="Confirm Booking" 
+                    Style="{StaticResource ButtonStyle}" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

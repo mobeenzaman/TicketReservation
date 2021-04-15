@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketReservation.Views.AppMainPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" >
+            <Image Style="{StaticResource NavLogoImageStyle}"/>
+            <Label Text="AIR TICKET" HorizontalTextAlignment="Center" FontSize="Large"/>
+            <Label x:Name="lblUserName" Text="My App" VerticalTextAlignment="Center" FontSize="Medium"/>
+            <Button x:Name="logOutBtn" HorizontalOptions="End" Text="Lgout" Clicked="OnLogoutClicked" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Button Clicked="OnNewTicketClicked" 
+                        Text="New Reservation"     
+                        Style="{StaticResource ButtonStyle}" 
+                        HeightRequest="80"/>
+
+            <Label Text="Tickets List" Style="{StaticResource ItemTitleStyle}" />
+            
+            <Frame Background="Salmon">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--list data row 1 -->
+                    <Label Grid.Row="1" Grid.Column="0" Text="Departure" TextColor="Black" HeightRequest="40" FontSize="16"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="Destinatin" TextColor="Black" HeightRequest="40" FontSize="16"/>
+                    <Label Grid.Row="1" Grid.Column="2" Text="Date" TextColor="Black" HeightRequest="40" FontSize="16"/>
+                    <Label Grid.Row="1" Grid.Column="3" Text="Time" TextColor="Black" HeightRequest="40" FontSize="16"/>
+
+                </Grid>
+            </Frame>
+
+            <ScrollView>
+                <ListView ItemsSource="{Binding TicketModelPairs}"  x:Name="ticketLists" HasUnevenRows="True" Margin="4">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <Frame >
+                                    <Grid >
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding DepCity}" TextColor="Black" HeightRequest="20"></Label>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding DestCity}" TextColor="Black" HeightRequest="20"></Label>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding FlightTime}" TextColor="Black" HeightRequest="20"></Label>
+                                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding FlightDate}" TextColor="Black" HeightRequest="20"></Label>
+                                    </Grid>
+
+                                </Frame>
+                            
+                            </ViewCell>
+                        
+                        </DataTemplate>
+                    
+                    </ListView.ItemTemplate>
+                
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

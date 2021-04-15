@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicketReservation.Views.LoginPage"
+             Title =" Account Login">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Orientation="Vertical" BackgroundColor="#98befa">
+                <Label Text="Login  and Get Your Ticket" 
+                   Style="{StaticResource ItemTitleStyle}"/>
+            </StackLayout>
+
+            <Image  Style="{StaticResource LogoImageStyle}"/>
+
+            <Frame  Style = "{StaticResource FrameStyle}" >
+                
+                <StackLayout Orientation="Vertical" Spacing="5">
+
+                    <Entry x:Name="loginName" Text="{Binding Email}" Placeholder="NAME"   
+                           Keyboard="Email"  
+                           Style="{StaticResource EntryStle}"/>
+
+                    <Entry x:Name="loginPassword" 
+                           Text="{Binding Password}" 
+                           Placeholder="PASSWORD"   
+                           IsPassword="True"  
+                           Style="{StaticResource EntryStle}"/>
+
+                    <!--  -->
+                    <Button Clicked="onlogin"
+                        Text="Login" 
+                        Style="{StaticResource ButtonStyle}" />
+
+                </StackLayout>
+            </Frame>
+
+          <StackLayout Orientation="Horizontal">
+                <BoxView WidthRequest="10" />
+                <Label Text="Don't have Account " />
+                <Label Text="CLICK HERE" TextColor="Blue" FontSize="16">
+                    <Label.GestureRecognizers>
+                        <!-- Add TapGestureRecognizer that invokes an action on your viewmodel -->
+                        <TapGestureRecognizer Tapped="RegisterNewUserCommand1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text=", To Create New Account"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
